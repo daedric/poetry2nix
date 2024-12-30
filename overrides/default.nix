@@ -3348,6 +3348,7 @@ lib.composeManyExtensions [
           #       echo "\"${version#v}\" = \"$(echo "$nix_prefetch" | jq -r ".sha256 // .hash")\";"
           #     done' _
           getRepoHash = version: {
+            "0.7.4" = "sha256-TQ7nBd2S77VYShYxpxZ3CfCMiOGyl9EtIv9nXZjmijc=";
             "0.7.3" = "sha256-TQ7nBd2S77VYShYxpxZ3CfCMiOGyl9EtIv9nXZjmijc=";
             "0.6.7" = "sha256-1udxvl98RveGJmnG8kwlecWD9V+BPadA/YE8jbt9jNo=";
             "0.6.2" = "sha256-pdaOTMzEOfAKFK+P/4f51bQbmCssMNvq2OGvGVPzvhw=";
@@ -3427,6 +3428,15 @@ lib.composeManyExtensions [
           );
 
           getCargoHash = version: {
+            "0.7.4" = {
+              # https://raw.githubusercontent.com/astral-sh/ruff/0.7.4/Cargo.lock
+              lockFile = ./ruff/0.7.4-Cargo.lock;
+              outputHashes = {
+                "lsp-types-0.95.1" = "sha256-8Oh299exWXVi6A39pALOISNfp8XBya8z+KT/Z7suRxQ=";
+                "salsa-0.18.0" = "sha256-zUF2ZBorJzgo8O8ZEnFaitAvWXqNwtHSqx4JE8nByIg=";
+                "zerovec-derive-0.10.3" = "sha256-zUF2ZBorJzgo8O8ZEnFaitAvWXqNwtHSqx4JE8nByIg=";
+              };
+            };
             "0.7.3" = {
               # https://raw.githubusercontent.com/astral-sh/ruff/0.7.3/Cargo.lock
               lockFile = ./ruff/0.7.3-Cargo.lock;
